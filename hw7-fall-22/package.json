@@ -1,0 +1,29 @@
+{
+  "name": "hw6-part-b-fall-22",
+  "version": "1.0.0",
+  "description": "A series of functions to filter courses by various conditions.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "start": "node ./src/main.js",
+    "prettier:fix": "npx prettier --write ./src/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umass-compsci-220/hw6-part-b-f22.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umass-compsci-220/hw6-part-b-f22/issues"
+  },
+  "homepage": "https://github.com/umass-compsci-220/hw6-part-b-f22#readme",
+  "devDependencies": {
+    "jest": "^29.2.2",
+    "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "node-fetch": "^3.2.10"
+  }
+}
