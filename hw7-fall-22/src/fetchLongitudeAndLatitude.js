@@ -26,8 +26,8 @@ export function fetchLongitudeAndLatitude(query) {
       }
 
       return {
-        lon: filteredArray[0].lon,
-        lat: filteredArray[0].lat
+        lon: Number(filteredArray[0].lon)
+        lat: Number(filteredArray[0].lat)
       }
     });
 }
