@@ -16,7 +16,7 @@ export function fetchLongitudeAndLatitude(query) {
     })
     .then((json) => {
       if (!Array.isArray(json) || json.length <= 0) {
-        return Promise.reject(new Error("No results found for query."));
+        return Promise.reject(new Error("No results found."));
       }
 
       const filteredArray = json.filter((obj) => "lon" in obj && "lat" in obj);
@@ -25,6 +25,9 @@ export function fetchLongitudeAndLatitude(query) {
         return Promise.reject(new Error("No results found for query."));
       }
 
-      return filteredArray[0];
+      return {
+        lon: filteredArray[0].lon,
+        lat: filteredArray[0].lat
+      }
     });
 }
