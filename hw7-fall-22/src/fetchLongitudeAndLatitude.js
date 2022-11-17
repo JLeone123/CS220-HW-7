@@ -25,6 +25,6 @@ export function fetchLongitudeAndLatitude(query) {
         return Promise.reject(new Error("No results found for query."));
       }
 
-      return Promise.resolve(filteredArray[0]);
+      return filteredArray[0];
     });
 }
