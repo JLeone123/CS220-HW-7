@@ -1,9 +1,9 @@
-import { fetchCurrentWeather } from "./fetchCurrentWeather.js"
-import { fetchLongitudeAndLatitude } from "./fetchLongitudeAndLatitude.js"
-import { fetchUniversities } from "./fetchUniversities.js"
+import { fetchCurrentWeather } from "./fetchCurrentWeather.js";
+import { fetchLongitudeAndLatitude } from "./fetchLongitudeAndLatitude.js";
+import { fetchUniversities } from "./fetchUniversities.js";
 
 export function fetchUniversityWeather(query) {
-  // TODO
+  // TODO  
 }
 
 export function fetchUMassWeather() {
