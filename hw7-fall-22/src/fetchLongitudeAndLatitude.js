@@ -3,9 +3,10 @@ export function fetchLongitudeAndLatitude(query) {
   // TODO
   const searchURL = new URL("https://geocode.maps.co/search");
   searchURL.searchParams.append("q", query);
+  searchURL.searchParams.append;
   const newSearchURL = searchURL.toString();
 
-  fetch(newSearchURL)
+  return fetch(newSearchURL)
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -14,18 +15,15 @@ export function fetchLongitudeAndLatitude(query) {
       }
     })
     .then((json) => {
-      if (!Array.isArray(json.results) || json.results.length <= 0) {
+      if (!Array.isArray(json) || json.length <= 0) {
         return Promise.reject(new Error("No results found."));
       }
 
-      const filteredArray = json.results.filter(
-        (obj) => "lon" in obj && "lat" in obj
-      );
+      const filteredArray = json.filter((obj) => "lon" in obj && "lat" in obj);
 
       if (filteredArray.length <= 0) {
         return Promise.reject(new Error("No results found for query."));
       }
-
       return Promise.resolve(filteredArray[0]);
     });
 }
