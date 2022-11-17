@@ -7,6 +7,5 @@ export function fetchUniversities(query) {
         universities.push(json[i].name);
       }
       return universities;
-    }
-    );
+    });
 }
