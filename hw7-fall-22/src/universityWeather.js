@@ -12,4 +12,5 @@ export function fetchUMassWeather() {
 
 export function fetchUCalWeather() {
   // TODO
+  
 }
