@@ -1,7 +1,7 @@
 // Written by James Leone
 export function fetchLongitudeAndLatitude(query) {
   // TODO
-  const searchURL = new URL("https://geocode.maps.co/search");
+  const searchURL = new URL("https://geocode-cache.herokuapp.com/search");
   searchURL.searchParams.append("q", query);
   searchURL.searchParams.append;
   const newSearchURL = searchURL.toString();
@@ -26,7 +26,7 @@ export function fetchLongitudeAndLatitude(query) {
       }
 
       return {
-        lon: Number(filteredArray[0].lon)
+        lon: Number(filteredArray[0].lon),
         lat: Number(filteredArray[0].lat)
       }
     });
