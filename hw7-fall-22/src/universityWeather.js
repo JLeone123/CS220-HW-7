@@ -4,6 +4,8 @@ import { fetchUniversities } from "./fetchUniversities.js"
 
 export function fetchUniversityWeather(query) {
   // TODO
+ 
+
 }
 
 export function fetchUMassWeather() {
@@ -12,4 +14,5 @@ export function fetchUMassWeather() {
 
 export function fetchUCalWeather() {
   // TODO
+  
 }
