@@ -12,7 +12,7 @@ export function readFromJSONFile(path) {
   Use readFile from the fs/promises library and JSON.parse to parse the contents of the file.
   */
   const data = {};
-  return readFile(path, "utf8").then((results) => {
+  return readFile(path, {encoding:"utf8"}).then((results) => {
     if(!data[results]){
       data[results] =  JSON.parse(results);
     }
