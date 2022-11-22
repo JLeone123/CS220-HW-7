@@ -1,5 +1,4 @@
 export function fetchCurrentWeather(longitude, latitude) {
-  // TODO
   return fetch(
     "https://api.open-meteo.com/v1/forecast?latitude=" +
       latitude +
@@ -7,7 +6,14 @@ export function fetchCurrentWeather(longitude, latitude) {
       longitude +
       "&hourly=temperature_2m&temperature_unit=fahrenheit"
   )
-    .then((response) => response.json()) // parse the result to a json
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } 
+      else {
+        return Promise.reject(new Error("No results found."));
+      }
+    })
     .then((json) => {
       return {
         time: json.hourly.time,
