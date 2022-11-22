@@ -38,4 +38,5 @@ export function fetchUMassWeather() {
 
 export function fetchUCalWeather() {
   // TODO
+  return fetchUniversityWeather("University of California");
 }
