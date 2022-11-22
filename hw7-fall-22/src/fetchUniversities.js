@@ -20,9 +20,6 @@ export function fetchUniversities(query) {
       }
     })
     .then((json) => {
-      if (!Array.isArray(json) || json.length < 0) {
-        return Promise.reject(new Error("No results found."));
-      }
       let universities = [];
       for (let i = 0; i < json.length; i++) {
         universities.push(json[i].name);
