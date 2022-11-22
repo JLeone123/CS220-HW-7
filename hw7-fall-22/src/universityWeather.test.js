@@ -1,6 +1,10 @@
 import assert from "node:assert";
 import { fetchUniversities } from "./fetchUniversities.js";
-import { fetchUCalWeather, fetchUMassWeather, fetchUniversityWeather } from "./universityWeather.js";
+import {
+  fetchUCalWeather,
+  fetchUMassWeather,
+  fetchUniversityWeather,
+} from "./universityWeather.js";
 
 test("fetchUniversityWeather follows the correct type specification", () => {
   const promise = fetchUniversityWeather("University of Massachusetts");
@@ -9,8 +13,17 @@ test("fetchUniversityWeather follows the correct type specification", () => {
     assert(typeof result === "object");
     assert(Object.keys(result).every((x) => typeof x === "string"));
     assert(Object.values(result).every((x) => typeof x === "number"));
-  })
+  });
 });
+
+// test("fetchUniversityWeather returns correct error message when there are no matching universities", () => {
+//   const promise = fetchUniversityWeather("WHY So SERIOUS? ~ Joker, 2008");
+//   return promise.catch((result) => {
+//     console.log(result);
+//     assert(result === "No results found for query.");
+//   });
+// });
+
 
 test("fetchUCalWeather follows type specification", () => {
   const promise = fetchUCalWeather();
