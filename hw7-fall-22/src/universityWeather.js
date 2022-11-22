@@ -24,7 +24,7 @@ export function fetchUniversityWeather(query) {
   let p = fetchUniversities(query).then((arr) => {
     if (arr.length === 0) {
       return Promise.reject(new Error("No results found for query."));
-    } 
+    }
     return arr.map((x) =>
       fetchLongitudeAndLatitude(x).then((y) =>
         fetchCurrentWeather(y.lon, y.lat).then((z) => {

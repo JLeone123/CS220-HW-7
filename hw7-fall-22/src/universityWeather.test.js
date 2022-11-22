@@ -16,13 +16,13 @@ test("fetchUniversityWeather follows the correct type specification", () => {
   });
 });
 
-// test("fetchUniversityWeather returns correct error message when there are no matching universities", () => {
-//   const promise = fetchUniversityWeather("WHY So SERIOUS? ~ Joker, 2008");
-//   return promise.catch((result) => {
-//     console.log(result);
-//     assert(result === "No results found for query.");
-//   });
-// });
+test("fetchUniversityWeather returns correct error message when there are no matching universities", () => {
+  const promise = fetchUniversityWeather("WHY So SERIOUS? ~ Joker, 2008");
+  return promise.catch((result) => {
+    console.log(result);
+    assert(result.length === 0);
+  });
+});
 
 
 test("fetchUCalWeather follows type specification", () => {
