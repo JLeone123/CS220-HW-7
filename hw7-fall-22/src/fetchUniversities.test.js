@@ -26,15 +26,8 @@ test("fetchUniversities outputs the correct number of results for a query with a
 });
 
 test("fetchUniversities outputs the correct number of results for a query with no results", () => {
-  const promise = fetchUniversities("University of California, Los Angeles");
+  const promise = fetchUniversities("West Massachusetts University");
   return promise.then((result) => {
     assert(result.length === 0);
-  });
-});
-
-test("fetchUniversities rejects a query that is undefined", () => {
-  const promise = fetchUniversities(undefined);
-  return promise.catch((result) => {
-    assert(result === "No query provided.");
   });
 });
