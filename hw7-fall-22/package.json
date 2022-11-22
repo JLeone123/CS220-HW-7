@@ -7,7 +7,11 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "start": "node ./src/main.js",
-    "prettier:fix": "npx prettier --write ./src/**/*.js"
+    "prettier:fix": "npx prettier --write ./src/**/*.js",
+    "test:weather": "node --experimental-vm-modules node_modules/jest/bin/jest.js ./src/fetchCurrentWeather.test.js",
+    "test:lonlat": "node --experimental-vm-modules node_modules/jest/bin/jest.js ./src/fetchLongitudeAndLatitude.test.js",
+    "test:universities": "node --experimental-vm-modules node_modules/jest/bin/jest.js ./src/fetchUniversities.test.js",
+    "test:universityWeather": "node --experimental-vm-modules node_modules/jest/bin/jest.js ./src/universityWeather.test.js"
   },
   "repository": {
     "type": "git",
