@@ -3,6 +3,7 @@ import { fetchCurrentWeather } from "./fetchCurrentWeather.js";
 import { fetchLongitudeAndLatitude } from "./fetchLongitudeAndLatitude.js";
 import { fetchUniversities } from "./fetchUniversities.js";
 
+// James Leone
 export function fetchUniversityWeather(query) {
   let totalAvg = 0;
   let obj = {};
