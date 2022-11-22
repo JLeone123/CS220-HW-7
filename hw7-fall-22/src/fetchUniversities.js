@@ -17,7 +17,7 @@ export function fetchUniversities(query) {
       if (response.ok) {
         return response.json();
       } else {
-        return Promise.reject(new Error("No results found."));
+        return Promise.reject(new Error(response.statusText));
       }
     })
     .then((json) => {
