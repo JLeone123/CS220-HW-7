@@ -2,7 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 
 export function writeToJSONFile(path, data) {
   return writeFile(path, JSON.stringify(data), (err) => {
-    if (err) throw new Error("Writing unsuccessful.");
+    if (err) throw err;
   });
 }
 
