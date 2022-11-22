@@ -1,4 +1,4 @@
-// Written by James Leone
+// James Leone
 export function fetchLongitudeAndLatitude(query) {
   // TODO
   if (query === undefined) {
