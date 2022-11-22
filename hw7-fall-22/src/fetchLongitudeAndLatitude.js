@@ -11,12 +11,12 @@ export function fetchLongitudeAndLatitude(query) {
       if (response.ok) {
         return response.json();
       } else {
-        return Promise.reject(new Error("No results found."));
+        return Promise.reject(new Error(response.statusText));
       }
     })
     .then((json) => {
       if (!Array.isArray(json) || json.length <= 0) {
-        return Promise.reject(new Error("No results found."));
+        return Promise.reject(new Error("No results found for query."));
       }
 
       const filteredArray = json.filter((obj) => "lon" in obj && "lat" in obj);
@@ -27,7 +27,7 @@ export function fetchLongitudeAndLatitude(query) {
 
       return {
         lon: Number(filteredArray[0].lon),
-        lat: Number(filteredArray[0].lat)
-      }
+        lat: Number(filteredArray[0].lat),
+      };
     });
 }
