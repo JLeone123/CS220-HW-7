@@ -1,3 +1,4 @@
+// Joe Lebedev
 export function fetchCurrentWeather(longitude, latitude) {
   return fetch(
     "https://api.open-meteo.com/v1/forecast?latitude=" +
