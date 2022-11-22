@@ -1,6 +1,5 @@
 // James Leone
 export function fetchLongitudeAndLatitude(query) {
-  // TODO
   if (query === undefined) {
     return Promise.reject(new Error ("A query was not provided"));
   }
