@@ -1,6 +1,18 @@
 // Written by James Leone
 export function fetchLongitudeAndLatitude(query) {
   // TODO
+  if (query === undefined) {
+    return Promise.reject(new Error ("A query was not provided"));
+  }
+
+  if (typeof query !== "string") {
+    return Promise.reject(new Error ("The provided query is not a string"));
+  }
+
+  if (query === "") {
+    return Promise.reject(new Error ("The query is empty"));
+  }
+
   const searchURL = new URL("https://geocode-cache.herokuapp.com/search");
   searchURL.searchParams.append("q", query);
   searchURL.searchParams.append;
