@@ -13,3 +13,12 @@ test("fetchCurrentWeather follows type specification", () => {
     assert(result.temperature_2m.every((x) => typeof x === "number")); // Assert each element in that time is a number
   });
 });
+
+test("fetchCurrWeather rejects", () => {
+  const promise = fetchCurrentWeather("sdhiw", "vknsdlk");
+  assert(!promise.isFulfilled);
+  const promise2 = fetchCurrentWeather(-1378217482375439872384723847, 23984732847237474368);
+  assert(!promise2.isFulfilled);
+  const promise3 = fetchCurrentWeather(true, false);
+  assert(!promise3.isFulfilled);
+});
