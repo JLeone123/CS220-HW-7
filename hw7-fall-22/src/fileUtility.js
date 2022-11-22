@@ -7,11 +7,13 @@ export function writeToJSONFile(path, data) {
 
 export function readFromJSONFile(path) {
   const data = {};
-  return readFile(path, {encoding:"utf8"}).then((results) => {
-    if(!data[results]){
-      data[results] =  JSON.parse(results);
-    }
-  }).catch((err) => {
-    console.log(err);
-  });
+  return readFile(path, { encoding: "utf8" })
+    .then((results) => {
+      if (!data[results]) {
+        data[results] = JSON.parse(results);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
