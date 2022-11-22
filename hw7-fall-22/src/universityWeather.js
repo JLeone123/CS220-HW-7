@@ -1,9 +1,9 @@
+// James Leone
 import { fetchCurrentWeather } from "./fetchCurrentWeather.js";
 import { fetchLongitudeAndLatitude } from "./fetchLongitudeAndLatitude.js";
 import { fetchUniversities } from "./fetchUniversities.js";
 
 export function fetchUniversityWeather(query) {
-  // TODO
   let totalAvg = 0;
   let obj = {};
   let count = 0;
@@ -36,11 +36,9 @@ export function fetchUniversityWeather(query) {
 }
 
 export function fetchUMassWeather() {
-  // TODO
   return fetchUniversityWeather("University of Massachusetts");
 }
 
 export function fetchUCalWeather() {
-  // TODO
   return fetchUniversityWeather("University of California");
 }

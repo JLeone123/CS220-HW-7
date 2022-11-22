@@ -1,3 +1,4 @@
+// Joe Lebedev
 export function fetchCurrentWeather(longitude, latitude) {
   return fetch(
     "https://api.open-meteo.com/v1/forecast?latitude=" +
@@ -11,7 +12,7 @@ export function fetchCurrentWeather(longitude, latitude) {
       return response.json();
     }
     else {
-      return Promise.reject(new Error("No results found."));
+      return Promise.reject(new Error(response.statusText));
     }
   })
   .then((json) => {
