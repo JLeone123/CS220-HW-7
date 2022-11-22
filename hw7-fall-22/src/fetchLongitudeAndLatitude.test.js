@@ -25,8 +25,8 @@ test("fetchLongitudeAndLatitude follows type specification for the first returne
     assert(typeof result.lon === "number");
     assert(typeof result.lat === "number");
     assert(Object.keys(result).length === 2);
-  })
-})
+  });
+});
 
 test("fetchLongitudeAndLatitude outputs correct longitude and latitude for just one location", () => {
   const promise = fetchLongitudeAndLatitude(
@@ -51,6 +51,7 @@ test("fetchLongitudeAndLatitude outputs correct longitude and latitude for first
 test("fetchLongitudeAndLatitude rejects with the correct error if there are no results (array is empty)", () => {
   const promise = fetchLongitudeAndLatitude("WHY So SERIOUS? ~ Joker, 2008");
   return promise.catch((result) => {
-    assert(result === "No results found for query");
-  })
+    console.log(result);
+    assert(result === "No results found for query.");
+  });
 });

@@ -9,8 +9,23 @@ export function fetchUniversityWeather(query) {
   let count = 0;
   let sum = 0;
 
-  let p = fetchUniversities(query).then((arr) =>
-    arr.map((x) =>
+  if (typeof query !== "string") {
+    return Promise.reject(new Error("Query must be a string"));
+  }
+
+  if (query === undefined) {
+    return Promise.reject(new Error("Query was not provided"));
+  }
+
+  if (query === "") {
+    return Promise.reject(new Error("Query is empty"));
+  }
+
+  let p = fetchUniversities(query).then((arr) => {
+    if (arr.length === 0) {
+      return Promise.reject(new Error("No results found for query."));
+    } 
+    return arr.map((x) =>
       fetchLongitudeAndLatitude(x).then((y) =>
         fetchCurrentWeather(y.lon, y.lat).then((z) => {
           count = count + 1;
@@ -23,13 +38,12 @@ export function fetchUniversityWeather(query) {
 
           if (count === arr.length) {
             obj["totalAverage"] = totalAvg / arr.length;
-            // return obj;
           }
           return obj;
         })
       )
-    )
-  );
+    );
+  });
 
   let newP = p.then((arr) => Promise.all(arr).then((x) => x[0]));
   return newP;
