@@ -16,13 +16,13 @@ export function fetchUniversityWeather(query) {
           count = count + 1;
 
           z["temperature_2m"].map((x) => (sum += x));
-          obj[x] = sum / z["temperature_2m"].length;
+          obj[x] = Number(sum / z["temperature_2m"].length);
           totalAvg += obj[x];
 
           sum = 0;
 
           if (count === arr.length) {
-            obj["totalAverage"] = totalAvg / arr.length;
+            obj["totalAverage"] = Number(totalAvg / arr.length);
             return obj;
           }
         });
