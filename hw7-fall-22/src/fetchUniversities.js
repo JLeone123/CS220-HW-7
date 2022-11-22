@@ -1,3 +1,4 @@
+// Aidan Ferrara
 export function fetchUniversities(query) {
   //check to make sure parameter is there
   if (query === undefined) {
