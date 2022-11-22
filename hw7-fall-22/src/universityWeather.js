@@ -9,26 +9,30 @@ export function fetchUniversityWeather(query) {
   let count = 0;
   let sum = 0;
 
-  return fetchUniversities(query).then((arr) => {
-    return arr.map((x) => {
-      return fetchLongitudeAndLatitude(x).then((y) => {
-        return fetchCurrentWeather(y.lon, y.lat).then((z) => {
+  let p = fetchUniversities(query).then((arr) =>
+    arr.map((x) =>
+      fetchLongitudeAndLatitude(x).then((y) =>
+        fetchCurrentWeather(y.lon, y.lat).then((z) => {
           count = count + 1;
+          z["temperature_2m"].map((e) => (sum += e));
 
-          z["temperature_2m"].map((x) => (sum += x));
-          obj[x] = Number(sum / z["temperature_2m"].length);
+          obj[x] = sum / z["temperature_2m"].length;
           totalAvg += obj[x];
 
           sum = 0;
 
           if (count === arr.length) {
-            obj["totalAverage"] = Number(totalAvg / arr.length);
-            return obj;
+            obj["totalAverage"] = totalAvg / arr.length;
+            // return obj;
           }
-        });
-      });
-    });
-  });
+          return obj;
+        })
+      )
+    )
+  );
+
+  let newP = p.then((arr) => Promise.all(arr).then((x) => x[0]));
+  return newP;
 }
 
 export function fetchUMassWeather() {
