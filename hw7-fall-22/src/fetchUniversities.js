@@ -20,7 +20,7 @@ export function fetchUniversities(query) {
       }
     })
     .then((json) => {
-      if (!Array.isArray(json) || json.length <= 0) {
+      if (!Array.isArray(json) || json.length < 0) {
         return Promise.reject(new Error("No results found."));
       }
       let universities = [];
