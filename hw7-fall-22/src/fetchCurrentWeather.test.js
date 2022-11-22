@@ -16,9 +16,16 @@ test("fetchCurrentWeather follows type specification", () => {
 
 test("fetchCurrWeather rejects", () => {
   const promise = fetchCurrentWeather("sdhiw", "vknsdlk");
-  assert(!promise.isFulfilled);
   const promise2 = fetchCurrentWeather(-1378217482375439872384723847, 23984732847237474368);
-  assert(!promise2.isFulfilled);
   const promise3 = fetchCurrentWeather(true, false);
-  assert(!promise3.isFulfilled);
+  
+  promise.then((result) => {
+    assert(result === undefined);
+  });
+  promise2.then((result) => {
+    assert(result === undefined);
+  });  
+  promise3.then((result) => {
+    assert(result === undefined);
+  }); 
 });
