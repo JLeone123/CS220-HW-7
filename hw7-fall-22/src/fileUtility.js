@@ -15,6 +15,7 @@ export function readFromJSONFile(path) {
       if (!data[results]) {
         data[results] = JSON.parse(results);
       }
+      return data[results];
     })
     .catch((err) => {
       console.log(err);
